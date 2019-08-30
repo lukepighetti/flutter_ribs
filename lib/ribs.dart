@@ -1,8 +1,6 @@
-/// Support for doing something awesome.
+/// The RIBs framework originally authored by Uber, ported to Dart by Luke Pighetti.
 ///
-/// More dartdocs go here.
+/// https://github.com/uber/RIBs/tree/master/ios/RIBs/Classes
 library ribs;
 
-export 'src/ribs_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/router.dart';
