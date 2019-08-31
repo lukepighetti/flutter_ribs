@@ -1,6 +1,6 @@
-import 'package:ribs/ribs.dart';
+// import 'package:ribs/ribs.dart';
 
-main() {
-  var awesome = Awesome();
-  print('awesome: ${awesome.isAwesome}');
-}
+// main() {
+//   var awesome = Awesome();
+//   print('awesome: ${awesome.isAwesome}');
+// }
