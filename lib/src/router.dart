@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
+import 'composite_disposable.dart';
+import 'interactor.dart';
+
 /// The lifecycle stages of a router scope.
 enum RouterLifecycle {
   /// Router did load
@@ -62,10 +65,10 @@ abstract class Routing extends RouterScope {
 /// Router drives the lifecycle of its owned `Interactor`.
 ///
 /// Routers should always use helper builders to instantiate children routers.
-class Router<InteractorType> extends Routing {
+class Router<T extends Interactor> extends Routing {
   /// The corresponding `Interactor` owned by this `Router`.
   // public let interactor: InteractorType
-  final InteractorType interactor;
+  final T interactor;
 
   /// The base `Interactable` associated with this `Router`.
   // public let interactable: Interactable
@@ -173,7 +176,7 @@ class Router<InteractorType> extends Routing {
   // MARK: - Internal
   // let deinitDisposable = CompositeDisposable()
   // final deinitDisposable = CompositeDisposable(); /// doesn't exist in `rxdart`
-  final List<StreamSubscription> deinitDisposable = [];
+  final deinitDisposable = CompositeDisposable();
 
   // func internalDidLoad() {
   //     bindSubtreeActiveState()
@@ -214,7 +217,7 @@ class Router<InteractorType> extends Routing {
         //         // and call dispose(), since we want to keep the subscription alive until deallocation, in
         //         // case the router is re-attached. Using weak does require the router to be retained until its
         //         // interactor is deactivated.
-        .subscribe((bool isActive) {
+        .listen((bool isActive) {
       setSubtreeActive(isActive);
     });
 
@@ -305,8 +308,8 @@ class Router<InteractorType> extends Routing {
 
     _lifecycleSubject.close();
 
-    deinitDisposable.forEach((d) => d.cancel());
+    deinitDisposable.dispose();
 
-    LeakDetector.instance.expectDeallocate(object: interactable);
+    // LeakDetector.instance.expectDeallocate(object: interactable);
   }
 }

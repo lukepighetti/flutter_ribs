@@ -5,7 +5,7 @@ description: A starting point for Dart libraries or applications.
 # author: Luke Pighetti <lukepighetti@gmail.com>
 
 environment:
-  sdk: '>=2.4.0 <3.0.0'
+  sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
   rxdart: ^0.22.2
