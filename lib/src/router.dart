@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -118,7 +116,7 @@ class Router<T extends Interactor> extends Routing {
     }
 
     _didLoadFlag = true;
-    _internalDidLoad();
+    internalDidLoad();
     didLoad();
   }
 
@@ -182,7 +180,7 @@ class Router<T extends Interactor> extends Routing {
   //     bindSubtreeActiveState()
   //     lifecycleSubject.onNext(.didLoad)
   // }
-  _internalDidLoad() {
+  internalDidLoad() {
     _bindSubtreeActiveState();
     _lifecycleSubject.add(RouterLifecycle.didLoad);
   }
