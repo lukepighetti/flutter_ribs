@@ -1,16 +1,9 @@
-// import 'package:ribs/ribs.dart';
-// import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
-// void main() {
-//   group('A group of tests', () {
-//     Awesome awesome;
+import 'package:ribs/ribs.dart';
 
-//     setUp(() {
-//       awesome = Awesome();
-//     });
-
-//     test('First Test', () {
-//       expect(awesome.isAwesome, isTrue);
-//     });
-//   });
-// }
+void main() {
+  test('unity', () {
+    expect(1, equals(1));
+  });
+}
