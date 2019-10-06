@@ -3,4 +3,5 @@
 /// https://github.com/uber/RIBs/tree/master/ios/RIBs/Classes
 library ribs;
 
+export 'src/interactor.dart';
 export 'src/router.dart';

@@ -63,10 +63,10 @@ abstract class Routing extends RouterScope {
 /// Router drives the lifecycle of its owned `Interactor`.
 ///
 /// Routers should always use helper builders to instantiate children routers.
-class Router<T extends Interactor> extends Routing {
+class Router<I extends Interactable> extends Routing {
   /// The corresponding `Interactor` owned by this `Router`.
   // public let interactor: InteractorType
-  final T interactor;
+  final I interactor;
 
   /// The base `Interactable` associated with this `Router`.
   // public let interactable: Interactable
@@ -111,7 +111,7 @@ class Router<T extends Interactor> extends Routing {
   //     didLoad()
   // }
   load() {
-    if (_didLoadFlag == false) {
+    if (_didLoadFlag == true) {
       return;
     }
 
@@ -166,7 +166,7 @@ class Router<T extends Interactor> extends Routing {
   //     children.removeElementByReference(child)
   // }
 
-  detachChild(Routing child) {
+  void detachChild(Routing child) {
     child.interactable.deactivate();
     children.remove(child);
   }
@@ -180,7 +180,7 @@ class Router<T extends Interactor> extends Routing {
   //     bindSubtreeActiveState()
   //     lifecycleSubject.onNext(.didLoad)
   // }
-  internalDidLoad() {
+  void internalDidLoad() {
     _bindSubtreeActiveState();
     _lifecycleSubject.add(RouterLifecycle.didLoad);
   }
@@ -189,7 +189,7 @@ class Router<T extends Interactor> extends Routing {
   // private let lifecycleSubject = PublishSubject<RouterLifecycle>()
   // private var didLoadFlag: Bool = false
 
-  final _lifecycleSubject = PublishSubject<RouterLifecycle>();
+  final _lifecycleSubject = PublishSubject<RouterLifecycle>(sync: true);
 
   bool _didLoadFlag = false;
 
@@ -208,7 +208,7 @@ class Router<T extends Interactor> extends Routing {
   //     _ = deinitDisposable.insert(disposable)
   // }
 
-  _bindSubtreeActiveState() {
+  void _bindSubtreeActiveState() {
     final disposable = interactable.isActiveStream
         //         // Do not retain self here to guarantee execution. Retaining self will cause the dispose bag
         //         // to never be disposed, thus self is never deallocated. Also cannot just store the disposable
@@ -238,7 +238,7 @@ class Router<T extends Interactor> extends Routing {
   //         }
   //     }
   // }
-  setSubtreeActive(bool active) {
+  void setSubtreeActive(bool active) {
     if (active) {
       _iterateSubtree(this, (Router router) {
         if (!router.interactable.isActive) {
@@ -247,7 +247,7 @@ class Router<T extends Interactor> extends Routing {
       });
     } else {
       _iterateSubtree(this, (Router router) {
-        if (!router.interactable.isActive) {
+        if (router.interactable.isActive) {
           router.interactable.deactivate();
         }
       });
@@ -262,7 +262,7 @@ class Router<T extends Interactor> extends Routing {
   //     }
   // }
 
-  _iterateSubtree(Routing root, Function(Router) closure) {
+  void _iterateSubtree(Routing root, Function(Router) closure) {
     closure(root);
 
     for (Routing child in root.children) {
@@ -277,7 +277,7 @@ class Router<T extends Interactor> extends Routing {
   //     }
   // }
 
-  _detachAllChildren() {
+  void _detachAllChildren() {
     for (Routing child in children) {
       detachChild(child);
     }

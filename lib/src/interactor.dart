@@ -36,14 +36,14 @@ abstract class Interactable extends InteractorScope {
   /// - note: This method is internally invoked by the corresponding router. Application code should never explicitly
   ///   invoke this method.
   // func activate()
-  activate();
+  void activate();
 
   /// Deactivate this interactor.
   ///
   /// - note: This method is internally invoked by the corresponding router. Application code should never explicitly
   ///   invoke this method.
   // func deactivate()
-  deactivate();
+  void deactivate();
 }
 
 /// An `Interactor` defines a unit of business logic that corresponds to a router unit.
