@@ -8,7 +8,7 @@ import 'dependency.dart';
 /// A component subclass implementation should conform to child 'Dependency' protocols, defined by all of its immediate
 /// children.
 // open class Component<DependencyType>: Dependency {
-class Component<T> extends Dependency {
+class Component<T extends Dependency> extends Dependency {
   /// The dependency of this `Component`.
   // public let dependency: DependencyType
   final T dependency;
@@ -49,8 +49,10 @@ class Component<T> extends Dependency {
   //     return instance
   // }
 
-  K shared<K>(String function, K Function() generator) {
-    var instance = _sharedInstances[function];
+  /// In Swift, `callingMethodName` is `#function`, which is the name of the calling method.
+  /// We don't have a performant way to do this in Dart, so we key it manually for the time being
+  K shared<K>(String callingMethodName, K Function() generator) {
+    var instance = _sharedInstances[callingMethodName];
 
     // Additional nil coalescing is needed to mitigate a Swift bug appearing in Xcode 10.
     // see https://bugs.swift.org/browse/SR-8704.
@@ -61,7 +63,7 @@ class Component<T> extends Dependency {
     }
 
     instance = generator();
-    _sharedInstances[function] = instance;
+    _sharedInstances[callingMethodName] = instance;
 
     return instance;
   }
