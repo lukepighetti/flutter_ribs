@@ -1,6 +1,26 @@
 import 'package:ribs/ribs.dart';
 import 'package:rxdart/rxdart.dart';
 
+class InteractorMock extends Interactable {
+  @override
+  bool get isActive => _active.value;
+
+  @override
+  Observable<bool> get isActiveStream => _active.stream;
+
+  final _active = BehaviorSubject<bool>.seeded(false);
+
+  @override
+  void activate() {
+    _active.add(true);
+  }
+
+  @override
+  void deactivate() {
+    _active.add(false);
+  }
+}
+
 class InteractableMock extends Interactable {
   /// Variables
   var _isActive = false;

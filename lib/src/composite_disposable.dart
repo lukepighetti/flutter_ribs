@@ -18,6 +18,12 @@ class CompositeDisposable {
   /// Add a [Subject] to be disposed of later
   addSubject(Subject subject) => _subjects.add(subject);
 
+  /// Add a [StreamSubscription] to be disposed of later
+  set newSubscription(StreamSubscription setter) => add(setter);
+
+  /// Add a [Subject] to be disposed of later
+  set newSubject(Subject setter) => addSubject(setter);
+
   /// Dispose of every registered [StreamSubscription] and [Subject]
   dispose() {
     _disposables.forEach((disposable) {

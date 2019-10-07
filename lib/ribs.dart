@@ -5,5 +5,8 @@ library ribs;
 
 export 'src/di/component.dart';
 
+export 'src/worker/worker.dart';
+
+export 'src/composite_disposable.dart';
 export 'src/interactor.dart';
 export 'src/router.dart';
