@@ -34,6 +34,10 @@ If you want to update a view, you just create a copy of an existing `rib` with a
 
 Typically deep linking would throw you into a certain view. Deep linking with `ribs` is different. You use a Workflow to progress down the tree, which allows you to do things like create dormant deeplinks that will wait for the customer to end up in a certain customer state before firing off an in-app event. Imagine creating a deeplink that causes the app to wait for someone to be looking for a ride before offering them a coupon, instead of just sending them to a page of a coupon.
 
+### Services as global state
+
+Services are passed through the tree and are stateful. For example, `ribs` don't hold an auth token, but an `AuthenticationService` would, and it would make it available to the tree. So as you can see, `ribs` are only concerned with business logic state, ie `LoggedIn` vs `LoggedOut`. It's not so concerned with implementation details like `auth token`. Only services appear to be concerned with those details.
+
 ## Contributing
 
 This framework _should_ be usable today, since it conforms to all of the uber/ribs Swift test coverage, but it is not battle tested. Feel free to play around with it, make issues, and feel free to make PRs. My goal is to use this framework for research, but ideally the community will move it towards being production ready.
