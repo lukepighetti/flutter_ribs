@@ -10,4 +10,7 @@ export 'src/workflow/workflow.dart';
 export 'src/componentized_builder.dart';
 export 'src/composite_disposable.dart';
 export 'src/interactor.dart';
+export 'src/launch_router.dart';
 export 'src/router.dart';
+export 'src/view_controllable.dart';
+export 'src/window.dart';

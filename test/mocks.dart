@@ -1,5 +1,17 @@
+import 'package:flutter/widgets.dart';
 import 'package:ribs/ribs.dart';
 import 'package:rxdart/rxdart.dart';
+
+class ViewControllableMock extends StatelessWidget with ViewControllable {
+  static String get label => "ViewControllableMock";
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(label),
+    );
+  }
+}
 
 class InteractorMock extends Interactable {
   @override

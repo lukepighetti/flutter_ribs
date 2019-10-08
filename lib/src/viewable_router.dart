@@ -23,8 +23,8 @@ abstract class ViewableRouting extends Routing {
 /// forming a tree of routers that drives the tree of view controllers. Router drives the lifecycle of its owned
 /// interactor. `Router`s should always use helper builders to instantiate children `Router`s.
 // open class ViewableRouter<InteractorType, ViewControllerType>: Router<InteractorType>, ViewableRouting {
-class ViewableRouter<InteractorType extends Interactor, ViewControllerType>
-    extends Router<InteractorType> implements ViewableRouting {
+class ViewableRouter<InteractorType extends Interactable, ViewControllerType> extends Router<InteractorType>
+    implements ViewableRouting {
   /// The corresponding `ViewController` owned by this `Router`.
   // public let viewController: ViewControllerType
   final ViewControllerType viewController;
