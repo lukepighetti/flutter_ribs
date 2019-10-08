@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:ribs/ribs.dart';
 import 'package:rxdart/rxdart.dart';
-
 import 'package:test/test.dart';
 
 Observable get emptyObservable => Observable.just(ActionableValue.empty()).share();
 
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/Workflow/WorkflowTests.swift
 main() {
   group("workflow", () {
     test("nested steps do not repeat", () async {

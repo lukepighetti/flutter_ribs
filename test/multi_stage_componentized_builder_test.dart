@@ -1,7 +1,7 @@
 import 'package:ribs/ribs.dart';
-
 import 'package:test/test.dart';
 
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/MultiStageComponentizedBuilderTests.swift
 main() {
   group("MultiStageComponentizedBuilder", () {
     final builder = MockMultiStageComponentizedBuilder(() => MockComponent());

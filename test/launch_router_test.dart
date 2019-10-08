@@ -4,6 +4,7 @@ import 'package:ribs/ribs.dart';
 
 import 'mocks.dart';
 
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/LaunchRouterTests.swift
 main() {
   group("LaunchRouter", () {
     final interactor = InteractableMock();

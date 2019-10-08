@@ -1,10 +1,7 @@
-// import 'package:flutter_test/flutter_test.dart';
-// import 'package:flutter_test/flutter_test.dart';
 import 'package:ribs/ribs.dart';
 import 'package:test/test.dart';
 
-// import 'package:test/test.dart';
-
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/ComponentizedBuilderTests.swift
 main() {
   group("ComponentizedBuilder", () {
     test("builder returns same instance, verify assertion", () async {

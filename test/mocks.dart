@@ -2,6 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:ribs/ribs.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/Mocks.swift
+
 class ViewControllableMock extends StatelessWidget with ViewControllable {
   static String get label => "ViewControllableMock";
 

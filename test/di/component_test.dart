@@ -1,8 +1,7 @@
-import 'package:ribs/src/di/dependency.dart';
+import 'package:ribs/ribs.dart';
 import 'package:test/test.dart';
 
-import 'package:ribs/ribs.dart';
-
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/DI/ComponentTests.swift
 main() {
   group("Component", () {
     test("shared", () {
@@ -39,8 +38,7 @@ class TestComponent extends Component<EmptyComponent> {
   }
 
   ClassProtocol get optionalShare {
-    return shared<ClassProtocol>(
-        "optionalShare", () => this.expectedOptionalShare);
+    return shared<ClassProtocol>("optionalShare", () => this.expectedOptionalShare);
   }
 }
 

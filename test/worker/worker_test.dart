@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 
 import '../mocks.dart';
 
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/Worker/WorkerTests.swift
 main() {
   group("Worker", () {
     TestWorker worker;
@@ -66,22 +67,16 @@ main() {
     });
 
     test("start stop lifecycle", () async {
-      disposeBag.newSubscription = worker.isStartedStream
-          .take(1)
-          .listen((isStarted) => expect(isStarted, isFalse));
+      disposeBag.newSubscription = worker.isStartedStream.take(1).listen((isStarted) => expect(isStarted, isFalse));
 
       interactor.activate();
       worker.start(interactor);
 
-      disposeBag.newSubscription = worker.isStartedStream
-          .take(1)
-          .listen((isStarted) => expect(isStarted, isTrue));
+      disposeBag.newSubscription = worker.isStartedStream.take(1).listen((isStarted) => expect(isStarted, isTrue));
 
       worker.stop();
 
-      disposeBag.newSubscription = worker.isStartedStream
-          .take(1)
-          .listen((isStarted) => expect(isStarted, isFalse));
+      disposeBag.newSubscription = worker.isStartedStream.take(1).listen((isStarted) => expect(isStarted, isFalse));
     });
   });
 }

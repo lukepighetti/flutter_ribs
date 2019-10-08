@@ -4,6 +4,8 @@
 library ribs;
 
 export 'src/di/component.dart';
+export 'src/di/dependency.dart';
+
 export 'src/worker/worker.dart';
 export 'src/workflow/workflow.dart';
 
