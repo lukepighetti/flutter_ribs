@@ -24,13 +24,13 @@ Since `ribs` architecture makes use of dependency injection, inheritance, and bu
 
 ### Refactoring your business, not your views
 
-Any time you refactor an app built on the `ribs` architecture, it seems that you are fundamentally refactoring the business logic and therefore the business itself. It's rare to refactor a business, so the codebase should remain fairly stable. If you're looking to update a view, that isn't really a refactor in `ribs.` See blow.
+Any time you refactor an app built on the `ribs` architecture, it seems that you are fundamentally refactoring the business logic and therefore the business itself. It's rare to refactor a business, so the codebase should remain fairly stable. If you're looking to update a view, that isn't really a refactor in `ribs.` See below.
 
-### A/B testable view changes for free
+### A/B testing, not refactoring
 
 If you want to update a view, you just create a copy of an existing `rib` with a view and modify the view. Since the new rib conforms to the same interface as the old one, it is fully interchangeable and the business logic of the app never changed. This new rib/view can be enabled via flags for A/B testing, incremental migration, or even providing alternative views for different markets.
 
-### Business logic based deep linking
+### Deep linking tied to business logic
 
 Typically deep linking would throw you into a certain view. Deep linking with `ribs` is different. You use a Workflow to progress down the tree, which allows you to do things like create dormant deeplinks that will wait for the customer to end up in a certain customer state before firing off an in-app event. Imagine creating a deeplink that causes the app to wait for someone to be looking for a ride before offering them a coupon, instead of just sending them to a page of a coupon.
 
