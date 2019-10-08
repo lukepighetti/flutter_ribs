@@ -1,3 +1,3 @@
 # Code of Conduct
 
-I don't care if you're gay, straight, upside-down, right-side-up, purple, yellow, black, white, male, female, shemale, both, any, neither, still figuring it out, unassuming, loud, quiet, queer, qualitative, quintessential, fabulous, or Fabio. If you write useful code I will accept it with a smile and a quiet thanks. If you're a mean person you won't be allowed to write code for this repo. It's pretty simple, people.
+I don't care if you're gay, straight, upside-down, right-side-up, purple, yellow, black, white, male, female, shemale, both, any, neither, still figuring it out, absolutely positive, potentially negative, unassuming, loud, quiet, queer, qualitative, quintessential, fabulous, or Fabio. If you write useful code I will accept it with a smile and a quiet thanks. If you're a mean person you won't be allowed to write code for this repo. It's pretty simple, people.
