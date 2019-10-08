@@ -1,7 +1,8 @@
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/ComponentizedBuilderTests.swift
+
 import 'package:ribs/ribs.dart';
 import 'package:test/test.dart';
 
-/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/ComponentizedBuilderTests.swift
 main() {
   group("ComponentizedBuilder", () {
     test("builder returns same instance, verify assertion", () async {
@@ -28,7 +29,7 @@ class MockComponent {}
 class MockSimpleRouter {}
 
 class MockComponentizedBuilder extends ComponentizedBuilder<MockComponent, MockSimpleRouter, void, void> {
-  MockComponentizedBuilder(MockComponent Function(void) componentBuilder) : super(componentBuilder: componentBuilder);
+  MockComponentizedBuilder(MockComponent Function(void) componentBuilder) : super(componentBuilder);
 
   MockSimpleRouter Function(MockComponent, void) buildHandler;
 

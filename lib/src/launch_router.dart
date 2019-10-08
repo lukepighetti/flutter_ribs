@@ -1,4 +1,4 @@
-// import UIKit
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBs/Classes/LaunchRouter.swift
 
 import 'interactor.dart';
 import 'view_controllable.dart';
@@ -6,18 +6,14 @@ import 'viewable_router.dart';
 import 'window.dart';
 
 /// The root `Router` of an application.
-// public protocol LaunchRouting: ViewableRouting {
 abstract class LaunchRouting extends ViewableRouting {
   /// Launches the router tree.
   ///
   /// - parameter window: The application window to launch from.
-  // func launch(from window: UIWindow)
   launch(WindowController window);
 }
 
 /// The application root router base class, that acts as the root of the router tree.
-// open class LaunchRouter<InteractorType, ViewControllerType>: ViewableRouter<InteractorType, ViewControllerType>, LaunchRouting {
-
 class LaunchRouter<InteractorType extends Interactable, ViewControllerType extends ViewControllable>
     extends ViewableRouter<InteractorType, ViewControllerType> implements LaunchRouting {
   /// Initializer.

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'view_controllable.dart';
 
+/// The controller used for launching [ViewControllable]
 class WindowController {
   final _currentView = ValueNotifier<ViewControllable>(null);
 
@@ -11,6 +12,7 @@ class WindowController {
   }
 }
 
+/// The root Window class for launching [ViewControllable]
 class Window extends StatelessWidget {
   Window(this.controller);
 

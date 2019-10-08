@@ -1,3 +1,5 @@
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBs/Classes/Worker/Worker.swift
+
 import 'dart:async';
 
 import 'package:ribs/src/composite_disposable.dart';
@@ -100,8 +102,7 @@ class Worker implements Working {
   _bind(InteractorScope interactorScope) {
     _unbindInteractor();
 
-    _interactorBindingDisposable =
-        interactorScope.isActiveStream.listen((isInteractorActive) {
+    _interactorBindingDisposable = interactorScope.isActiveStream.listen((isInteractorActive) {
       if (isInteractorActive) {
         if (this.isStarted == true) {
           this._executeStart(interactorScope);
@@ -149,6 +150,5 @@ class WeakInteractorScope extends InteractorScope {
   bool get isActive => sourceScope?.isActive ?? false;
 
   @override
-  Observable<bool> get isActiveStream =>
-      sourceScope?.isActiveStream ?? Observable.just(false);
+  Observable<bool> get isActiveStream => sourceScope?.isActiveStream ?? Observable.just(false);
 }

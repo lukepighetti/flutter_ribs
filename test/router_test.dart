@@ -1,3 +1,5 @@
+/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/RouterTests.swift
+
 import 'dart:async';
 
 import 'package:ribs/ribs.dart';
@@ -5,7 +7,6 @@ import 'package:test/test.dart';
 
 import 'mocks.dart';
 
-/// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/RouterTests.swift
 main() {
   group("Router", () {
     Router router;
