@@ -36,6 +36,6 @@ Typically deep linking would throw you into a certain view. Deep linking with `r
 
 ## Contributing
 
-This framework *should* be usable today, since it conforms to all of the uber/ribs Swift test coverage, but it is not battle tested. Feel free to play around with it, make issues, and feel free to make PRs. I will be making very few PRs on this framework myself as my intent is to springboard this framework into a simpler implementation that is more strongly tied to Flutter.
+This framework *should* be usable today, since it conforms to all of the uber/ribs Swift test coverage, but it is not battle tested. Feel free to play around with it, make issues, and feel free to make PRs. My goal is to use this framework for research, but ideally the community will move it towards being production ready.
 
 This framework does currently depend on Flutter but if someone wants to make it work outside the Flutter framework I would be happy to accept discuss options in the issues. I'm not sure if this framework would work well for backend applications but I'd be curious to see what backend devs think, and if they believe there is merit, I would happily work with them to make this a pure Dart package.
