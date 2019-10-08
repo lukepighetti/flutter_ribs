@@ -10,28 +10,7 @@ At first the approach seems odd, if we build our app as a view logic tree, why w
 
 ## Business Logic Tree
 
-```
-               Root
-               /   \
-              /     \
-             /       \
-      LoggedOut       LoggedIn
-    (Onboarding)     /   |    \
-                    /    |     \
-                   /     |      \
-             OffRide     |       OnRide      
-              (Map)      |       (ETA)
-                         | 
-                     BuyingRide
-                    /    |     \
-                   /     |      \
-                  /      |       \
-        Destination      |       PickupLocation
-     (Search address)    |   (Location refinement)
-                         |
-                      CarType
-                   (Select a car)
-```
+![Business logic tree](./readme/business-logic.gif)
 
 The business logic tree is made up of customer states. Are they logged in, or not? Based on that state, what can they do, and how do they transition towards the goal of being a paying customer?
 
