@@ -1,6 +1,6 @@
 # flutter_ribs
 
-A port of uber/ribs, a novel approach to business logic and state management.
+A port of uber/ribs, a novel approach to app architecture which places business logic, deep linking, a/b testing, and codebase stability as first class citizens.
 
 ## Introduction
 
