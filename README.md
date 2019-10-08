@@ -36,7 +36,7 @@ Typically deep linking would throw you into a certain view. Deep linking with `r
 
 ### Services as global state
 
-Services are passed through the tree and are stateful. For example, it seems to be preffered if `ribs` don't hold an auth token, but an `AuthenticationService` would, and it would make it available to the tree. So as you can see, `ribs` are only concerned with business logic state, ie `LoggedIn` vs `LoggedOut`. It's not so concerned with implementation details like `auth token`. Only services appear to be concerned with those details.
+Services are passed through the tree and are stateful. For example, it seems to be preffered if `ribs` don't hold an auth token, but an `AuthenticationService` would, and it would make it available to the tree. So as you can see, `ribs` are only concerned with business logic state, ie `LoggedIn` vs `LoggedOut`. It's not so concerned with implementation details like `auth token`. Only services appear to be concerned with those details. *These details are still not clear to me, so this part of the docs might change.*
 
 ## Contributing
 
