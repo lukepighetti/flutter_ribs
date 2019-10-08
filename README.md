@@ -4,7 +4,7 @@ A port of uber/ribs, a novel approach to app architecture which places business 
 
 ## Introduction
 
-So, a couple years ago, Uber decided to do a major refactor of their mobile apps, and decided to structure their state tree based on business logic instead of view logic. This created a novel approach to mobile app architecture that I believe is worth studying, which is why I ported it to Flutter.
+So, a couple years ago, Uber decided to do a major refactor of their mobile apps, and decided to structure their state tree based on business logic instead of view logic. This created a novel approach to mobile app architecture that I believe is worth studying, which is why I ported it to Dart as a Flutter package.
 
 At first the approach seems odd, if we build our app as a view logic tree, why would we instead try to structure it as a business logic tree? And what the heck do they mean by business logic? As a term, it can be quite nebulous.
 
