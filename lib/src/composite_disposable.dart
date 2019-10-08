@@ -24,6 +24,9 @@ class CompositeDisposable {
   /// Add a [Subject] to be disposed of later
   set newSubject(Subject setter) => addSubject(setter);
 
+  /// The number of registered disposables
+  int get count => _disposables.length + _subjects.length;
+
   /// Dispose of every registered [StreamSubscription] and [Subject]
   dispose() {
     _disposables.forEach((disposable) {

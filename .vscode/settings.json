@@ -1,0 +1,7 @@
+{
+  "dart.lineLength": 120,
+  "[dart]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+  },
+}
