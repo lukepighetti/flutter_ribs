@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
       home: Material(
         child: _Window(),
       ),
+
+      /// Attach the WindowController to the navigator
+      navigatorKey: WindowController.navigator,
     );
   }
 }
@@ -30,6 +33,8 @@ class __WindowState extends State<_Window> {
   WindowController windowController;
   LaunchRouting launchRouter;
 
+  var _isReady = false;
+
   @override
   void initState() {
     final windowController = WindowController();
@@ -38,13 +43,22 @@ class __WindowState extends State<_Window> {
     final launchRouter = RootBuilder(AppComponent()).build();
     this.launchRouter = launchRouter;
 
-    launchRouter.launch(windowController);
+    /// Launch right after build so we can access [WindowController.push] in our ViewControllers
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        launchRouter.launch(windowController);
+        _isReady = true;
+      });
+    });
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Window(windowController);
+    if (_isReady)
+      return Window(windowController);
+    else
+      return Material();
   }
 }

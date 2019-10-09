@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:ribs/ribs.dart';
 
 import 'root_interactor.dart';
@@ -16,8 +16,7 @@ class RootViewController extends StatelessWidget with RootViewControllable imple
 
   @override
   void present(ViewControllable viewController) {
-    // present(viewController);
-    /// TODO: implement present
+    WindowController.present((context) => viewController);
   }
 
   @override

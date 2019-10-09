@@ -24,10 +24,12 @@ class LoggedOutViewController extends StatelessWidget with LoggedOutViewControll
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        onPressed: _handleLogin,
-        child: Text("Login"),
+    return Material(
+      child: Center(
+        child: RaisedButton(
+          onPressed: _handleLogin,
+          child: Text("Login"),
+        ),
       ),
     );
   }
