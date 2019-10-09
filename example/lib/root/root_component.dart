@@ -1,6 +1,6 @@
 import 'package:ribs/ribs.dart';
 
-import '../logged_out/DELETE_ME.dart';
+import '../logged_out/logged_out_builder.dart';
 
 /// The dependencies needed from the parent scope of Root to provide for the LoggedOut scope.
 abstract class RootDependencyLoggedOut implements Dependency {

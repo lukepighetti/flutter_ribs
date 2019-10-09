@@ -2,7 +2,8 @@ import 'package:ribs/ribs.dart';
 
 import 'root_interactor.dart';
 
-import '../logged_out/DELETE_ME.dart';
+import '../logged_out/logged_out_builder.dart';
+import '../logged_out/logged_out_interactor.dart';
 
 abstract class RootInteractable implements Interactable, LoggedOutListener {
   RootRouting router;
