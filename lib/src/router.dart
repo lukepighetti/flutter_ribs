@@ -1,6 +1,5 @@
 /// Based on https://github.com/uber/RIBs/blob/master/ios/RIBs/Classes/Router.swift
 
-import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'composite_disposable.dart';
@@ -84,7 +83,7 @@ class Router<I extends Interactable> extends Routing {
   //     }
   //     self.interactable = interactable
   // }
-  Router({@required this.interactor}) : this.interactable = interactor;
+  Router(this.interactor) : this.interactable = interactor;
 
   /// Loads the `Router`.
   ///

@@ -13,7 +13,7 @@ main() {
     StreamSubscription lifecycleDisposable;
 
     setUp(() {
-      router = Router(interactor: InteractableMock());
+      router = Router(InteractableMock());
     });
 
     tearDown(() {
