@@ -10,6 +10,11 @@ abstract class LoggedInPresentableListener {}
 /// This violates the @immutable warning from StatelessWidget which expects all properties to be final.
 /// But in practice it does not cause any known issues.
 class LoggedInViewController extends StatelessWidget with LoggedInViewControllable implements LoggedInPresentable {
+  LoggedInViewController(this.player1Name, this.player2Name);
+
+  final String player1Name;
+  final String player2Name;
+
   @override
   LoggedInPresentableListener listener;
 
@@ -22,7 +27,10 @@ class LoggedInViewController extends StatelessWidget with LoggedInViewControllab
   Widget build(BuildContext context) {
     return Material(
       child: Center(
-        child: Text("LoggedIn"),
+        child: Text(
+          "LoggedIn with\n$player1Name\n$player2Name",
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

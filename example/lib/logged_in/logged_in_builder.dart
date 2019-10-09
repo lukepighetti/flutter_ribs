@@ -9,21 +9,22 @@ abstract class LoggedInDependency implements Dependency {
 }
 
 class LoggedInComponent extends Component<LoggedInDependency> {
-  LoggedInComponent(LoggedInDependency dependency) : super(dependency);
+  LoggedInComponent(LoggedInDependency dependency, this.player1Name, this.player2Name) : super(dependency);
   // Declare 'fileprivate' dependencies that are only used by this RIB.
+  final String player1Name, player2Name;
 }
 
 abstract class LoggedInBuildable implements Buildable {
-  LoggedInRouting build(LoggedInListener listener);
+  LoggedInRouting build(LoggedInListener listener, String player1Name, String player2Name);
 }
 
 class LoggedInBuilder extends Builder<LoggedInDependency> implements LoggedInBuildable {
   LoggedInBuilder(LoggedInDependency dependency) : super(dependency);
 
   @override
-  LoggedInRouting build(LoggedInListener listener) {
-    final _ = LoggedInComponent(dependency);
-    final viewController = LoggedInViewController();
+  LoggedInRouting build(LoggedInListener listener, String player1Name, String player2Name) {
+    final _ = LoggedInComponent(dependency, player1Name, player2Name);
+    final viewController = LoggedInViewController(player1Name, player2Name);
     final interactor = LoggedInInteractor(viewController);
     interactor.listener = listener;
 

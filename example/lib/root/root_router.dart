@@ -48,7 +48,7 @@ class RootRouter extends LaunchRouter<RootInteractable, RootViewControllable> im
       loggedOut = null;
     }
 
-    final loggedIn = loggedInBuilder.build(interactor);
+    final loggedIn = loggedInBuilder.build(interactor, player1Name, player2Name);
     attachChild(loggedIn);
 
     viewController.present(loggedIn.viewControllable);
