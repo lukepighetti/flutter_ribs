@@ -1,7 +1,7 @@
 /// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/ComponentizedBuilderTests.swift
 
 import 'package:ribs/ribs.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 main() {
   group("ComponentizedBuilder", () {
@@ -11,7 +11,7 @@ main() {
       sameInstanceBuilder.buildHandler = (component, _) => MockSimpleRouter();
 
       expect(() => sameInstanceBuilder.buildRouter(null, null), returnsNormally);
-      expect(() => sameInstanceBuilder.buildRouter(null, null), throwsA(TypeMatcher<AssertionError>()));
+      expect(() => sameInstanceBuilder.buildRouter(null, null), throwsAssertionError);
     });
 
     test("builder returns same instance, verify assertion", () async {
