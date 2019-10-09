@@ -14,9 +14,19 @@ class RootViewController extends StatelessWidget with RootViewControllable imple
   @override
   var listener;
 
+  ViewControllable _presentedViewController;
+
   @override
   void present(ViewControllable viewController) {
-    WindowController.present((context) => viewController);
+    _presentedViewController = viewController;
+    WindowController.present(viewController);
+  }
+
+  @override
+  void dismiss(ViewControllable viewController) {
+    if (_presentedViewController == viewController) {
+      WindowController.dismiss(viewController);
+    }
   }
 
   @override

@@ -6,8 +6,21 @@ class WindowController {
   static final navigator = GlobalKey<NavigatorState>();
 
   /// Pushes this view to the top of the [Navigator] stack
-  static present(WidgetBuilder builder) async {
-    navigator.currentState.push(MaterialPageRoute(builder: builder));
+  static present(ViewControllable viewControllable) async {
+    navigator.currentState.push(MaterialPageRoute(
+      builder: (context) => viewControllable,
+      settings: RouteSettings(arguments: viewControllable),
+    ));
+  }
+
+  static dismiss(ViewControllable viewControllable) {
+    Route previousRoute;
+
+    navigator.currentState.popUntil((route) {
+      final result = previousRoute?.settings?.arguments == viewControllable;
+      previousRoute = route;
+      return result;
+    });
   }
 
   final _currentView = ValueNotifier<ViewControllable>(null);

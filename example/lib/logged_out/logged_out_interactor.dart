@@ -14,6 +14,7 @@ abstract class LoggedOutPresentable implements Presentable {
 
 abstract class LoggedOutListener {
   // Declare methods the interactor can invoke to communicate with other RIBs.
+  void didLogin(String player1Name, String player2Name);
 }
 
 class LoggedOutInteractor extends PresentableInteractor<LoggedOutPresentable>
@@ -43,5 +44,6 @@ class LoggedOutInteractor extends PresentableInteractor<LoggedOutPresentable>
     player2Name ??= "Player 2";
 
     print("Login with $player1Name, $player2Name");
+    listener.didLogin(player1Name, player2Name);
   }
 }
