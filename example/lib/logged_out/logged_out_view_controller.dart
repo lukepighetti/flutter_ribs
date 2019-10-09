@@ -18,20 +18,42 @@ class LoggedOutViewController extends StatelessWidget with LoggedOutViewControll
   @override
   Widget get uiviewController => this;
 
+  final _defaultPlayer1Name = "Player 1";
+  final _defaultPlayer2Name = "Player 2";
+
   _handleLogin() {
     listener.login(
-      player1Name: "Player 1",
-      player2Name: "Player 2",
+      player1Name: _player1Controller.text.isEmpty ? _defaultPlayer1Name : _player1Controller.text,
+      player2Name: _player2Controller.text.isEmpty ? _defaultPlayer2Name : _player2Controller.text,
     );
   }
+
+  final _player1Controller = TextEditingController();
+  final _player2Controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Center(
-        child: RaisedButton(
-          onPressed: _handleLogin,
-          child: Text("Login"),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              controller: _player1Controller,
+              decoration: InputDecoration(hintText: _defaultPlayer1Name, helperText: "Player 1 name"),
+            ),
+            SizedBox(height: 12),
+            TextField(
+              controller: _player2Controller,
+              decoration: InputDecoration(hintText: _defaultPlayer2Name, helperText: "Player 2 name"),
+            ),
+            SizedBox(height: 12),
+            RaisedButton(
+              onPressed: _handleLogin,
+              child: Text("Login"),
+            ),
+          ],
         ),
       ),
     );
