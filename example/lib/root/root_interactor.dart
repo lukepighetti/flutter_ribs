@@ -5,6 +5,7 @@ import 'root_view_controller.dart';
 
 abstract class RootRouting implements ViewableRouting {
   // Declare methods the interactor can invoke to manage sub-tree via the router.
+  routeToLoggedIn(String player1Name, String player2Name);
 }
 
 abstract class RootPresentable implements Presentable {
@@ -36,5 +37,12 @@ class RootInteractor extends PresentableInteractor<RootPresentable>
   willResignActive() {
     super.willResignActive();
     // Pause any business logic.
+  }
+
+  @override
+  void didLogin(String player1Name, String player2Name) {
+    if (player1Name.isNotEmpty && player2Name.isNotEmpty) {
+      router.routeToLoggedIn(player1Name, player2Name);
+    }
   }
 }
