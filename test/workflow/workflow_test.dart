@@ -4,7 +4,7 @@ import 'dart:async';
 
 import 'package:ribs/ribs.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 Observable get emptyObservable => Observable.just(ActionableValue.empty()).share();
 

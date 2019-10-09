@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:ribs/ribs.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import 'mocks.dart';
 
@@ -13,7 +13,7 @@ main() {
     StreamSubscription lifecycleDisposable;
 
     setUp(() {
-      router = Router(interactor: InteractableMock());
+      router = Router(InteractableMock());
     });
 
     tearDown(() {

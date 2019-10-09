@@ -34,7 +34,7 @@ class ViewableRouter<InteractorType extends Interactable, ViewControllerType> ex
   /// - parameter viewController: The corresponding `ViewController` of this `Router`.
   ViewableRouter(InteractorType interactor, this.viewController)
       : this.viewControllable = viewController as ViewControllable,
-        super(interactor: interactor);
+        super(interactor);
 
   /// MARK: - Internal
   internalDidLoad() {

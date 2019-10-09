@@ -1,8 +1,8 @@
 name: ribs
 description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+version: 0.1.0
+author: Luke Pighetti <lukepighetti@gmail.com>
+homepage: https://github.com/lukepighetti/flutter_ribs
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -10,12 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  rxdart:
+  rxdart: ^0.22.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  test:
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

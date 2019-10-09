@@ -1,7 +1,7 @@
 /// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/MultiStageComponentizedBuilderTests.swift
 
 import 'package:ribs/ribs.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 main() {
   group("MultiStageComponentizedBuilder", () {
@@ -48,15 +48,9 @@ main() {
         returnsNormally,
       );
 
-      expect(
-        () => sameInstanceBuilder.finalStageBuildWithDynamicDependency(42),
-        throwsA(TypeMatcher<AssertionError>()),
-      );
+      expect(() => sameInstanceBuilder.finalStageBuildWithDynamicDependency(42), throwsAssertionError);
 
-      expect(
-        () => sameInstanceBuilder.componentForCurrentBuildPass,
-        throwsA(TypeMatcher<AssertionError>()),
-      );
+      expect(() => sameInstanceBuilder.componentForCurrentBuildPass, throwsAssertionError);
     });
   });
 }

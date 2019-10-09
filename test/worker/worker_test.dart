@@ -1,7 +1,7 @@
 /// Based on https://github.com/uber/RIBs/blob/master/ios/RIBsTests/Worker/WorkerTests.swift
 
 import 'package:ribs/ribs.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import '../mocks.dart';
 
