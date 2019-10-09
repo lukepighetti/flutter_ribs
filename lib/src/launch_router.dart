@@ -27,6 +27,15 @@ class LaunchRouter<InteractorType extends Interactable, ViewControllerType exten
   /// - parameter window: The window to launch the router tree in.
   launch(WindowController window) {
     window.launch(viewController);
+
+    /// TODO: implement window.makeKeyAndVisible()
+    /// https://github.com/uber/RIBs/blob/master/ios/RIBs/Classes/LaunchRouter.swift#L44
+    ///
+    /// So it appears that iOS lets people create windows in a stack and specify which one is on top
+    /// of the stack using UIWindow.makeKeyAndVisible();
+    ///
+    /// We might have to build our own Stack in Flutter that allows us to achieve this same functionality
+
     interactable.activate();
     load();
   }

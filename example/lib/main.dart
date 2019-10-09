@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ribs/ribs.dart';
 
+import 'app_start/app_component.dart';
 import 'root/root_builder.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: _Window(),
+      home: Material(
+        child: _Window(),
+      ),
     );
   }
 }
@@ -24,26 +27,24 @@ class _Window extends StatefulWidget {
 }
 
 class __WindowState extends State<_Window> {
-  WindowController controller;
+  WindowController windowController;
+  LaunchRouting launchRouter;
 
   @override
   void initState() {
-    controller = WindowController();
+    final windowController = WindowController();
+    this.windowController = windowController;
 
-    final dependency = AppDependency();
-    final root = RootBuilder(dependency);
-    final router = root.build();
+    final launchRouter = RootBuilder(AppComponent()).build();
+    this.launchRouter = launchRouter;
 
-    final launchRouter = LaunchRouter(router.interactable, router.viewControllable);
-    launchRouter.launch(controller);
+    launchRouter.launch(windowController);
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Window(controller);
+    return Window(windowController);
   }
 }
-
-class AppDependency extends RootDependency {}

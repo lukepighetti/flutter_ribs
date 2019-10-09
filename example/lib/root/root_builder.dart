@@ -5,14 +5,15 @@ import 'root_interactor.dart';
 import 'root_router.dart';
 import 'root_view_controller.dart';
 
-import '../logged_out/DELETE_ME.dart';
+import '../logged_out/logged_out_builder.dart';
 
 abstract class RootDependency implements Dependency {
   // Declare the set of dependencies required by this RIB, but cannot be created by this RIB.
 }
 
 class RootComponent extends Component<RootDependency> with RootChildrenDependencies {
-  RootComponent(RootDependency dependency) : super(dependency);
+  RootComponent(RootDependency dependency, this.viewController) : super(dependency);
+  final RootViewController viewController;
   // Declare dependencies that are only used by this RIB.
 }
 
@@ -25,8 +26,8 @@ class RootBuilder extends Builder<RootDependency> implements RootBuildable {
 
   @override
   LaunchRouting build() {
-    final component = RootComponent(dependency);
     final viewController = RootViewController();
+    final component = RootComponent(dependency, viewController);
     final interactor = RootInteractor(viewController);
 
     final loggedOutBuilder = LoggedOutBuilder(component);
