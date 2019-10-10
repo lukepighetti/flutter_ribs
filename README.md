@@ -34,6 +34,10 @@ If you want to update a view, you just create a copy of an existing `rib` with a
 
 Typically deep linking would throw you into a certain view. Deep linking with `ribs` is different. You use a Workflow to progress down the tree, which allows you to do things like create dormant deeplinks that will wait for the customer to end up in a certain customer state before firing off an in-app event. Imagine creating a deeplink that causes the app to wait for someone to be looking for a ride before offering them a coupon, instead of just sending them to a page of a coupon.
 
+### Unit tested business logic
+
+Since the tree is a business logic tree and makes use of interfaces/protocols it readily accepts small mocks for unit testing business logic. Once those tests are setup, it's quite simple to build a `rib` in Flutter and exert some Widget testing on it.
+
 ### Services as global state
 
 Services are passed through the tree and are stateful. For example, it seems to be preffered if `ribs` don't hold an auth token, but an `AuthenticationService` would, and it would make it available to the tree. So as you can see, `ribs` are only concerned with business logic state, ie `LoggedIn` vs `LoggedOut`. It's not so concerned with implementation details like `auth token`. Only services appear to be concerned with those details. *These details are still not clear to me, so this part of the docs might change.*
@@ -46,6 +50,7 @@ This framework does currently depend on Flutter but if someone wants to make it 
 
 ## TODO
 
-- Examples, based on Uber's TicTacToe example
-- Code generation utilities
-- Leak detection
+- Code generation: `ribs` has a LOT of boilerplate that is intended to be handled with code generatio. That would greatly reduce the mental/time cost of using `ribs.`
+- Examples: based on Uber's TicTacToe example including testing & deep linking
+- Pure Dart: remove the dependency on Flutter, if possible
+- Leak detection: architecture exists in the Uber/ribs Swift implementation, but needs to be implemented.
